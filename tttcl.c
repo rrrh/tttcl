@@ -655,7 +655,7 @@ int main() {
 
   tcl_init(&tcl);
   while (1) {
-  /*  int inp = fgetc(stdin);
+    int inp = getc(&inp);
 
     if (i > buflen - 1) {
       buf = realloc(buf, buflen += CHUNK);
@@ -686,7 +686,6 @@ int main() {
         break;
       }
     }
-    */
   }
 
   free(buf);
