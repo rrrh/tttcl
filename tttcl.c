@@ -123,7 +123,7 @@ struct tcl_parser {
 typedef char tcl_value_t;
 
 const char *tcl_string(tcl_value_t *v) { return v; }
-int tcl_int(tcl_value_t *v) { return strtol(v, 10); }
+int tcl_int(tcl_value_t *v) { char* end; return strtol(v, &end, 10); }
 int tcl_length(tcl_value_t *v) { return v == NULL ? 0 : strlen(v); }
 
 void tcl_free(tcl_value_t *v) { free(v); }
