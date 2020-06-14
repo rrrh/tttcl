@@ -643,10 +643,15 @@ void tcl_destroy(struct tcl *tcl) {
 int main() {
   struct tcl tcl;
   int buflen = CHUNK;
+
+  // move to startup and init sequence.
+  malloc_addblock((void*)__HeapBase, _heap_end);
+
+
   char *buf = malloc(buflen);
   int i = 0;
 
-  malloc_addblock((void*)__HeapBase, _heap_end);
+
 
   tcl_init(&tcl);
   while (1) {
